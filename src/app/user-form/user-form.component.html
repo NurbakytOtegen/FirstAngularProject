@@ -1,0 +1,21 @@
+<p>user-form works!</p>
+<h2>{{ isLogin ? 'Login' : 'Register' }}</h2>
+<form (ngSubmit)="submit()">
+
+  <label>Username:</label>
+  <input [(ngModel)]="username" name="username" required>
+  <br>
+  <div *ngIf="!isLogin">
+    <label>Email:</label>
+    <input [(ngModel)]="email" name="email" required type="email">
+  </div>
+  <label>Password:</label>
+  <input [(ngModel)]="password" name="password" required type="password">
+  <br>
+
+  <button type="submit">{{ isLogin ? 'Login' : 'Register' }}</button>
+</form>
+
+<button (click)="isLogin = !isLogin">
+  Switch to {{ isLogin ? 'Register' : 'Login' }}
+</button>
